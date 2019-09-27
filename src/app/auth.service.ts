@@ -10,7 +10,7 @@ export class AuthService implements CanActivate {
 	}
 
 	async canActivate(route) {
-		if(await this.user.isAuthenticated()) {
+		if(await this.user.isAuthenticated()) {//si el usuario esta autenticado
 			return true
 		}
 

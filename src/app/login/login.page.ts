@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
 
   	try {
   		//hack.
-			const res = await this.afAuth.auth.signInWithEmailAndPassword(username + '@codedamn.com', password)
+		const res = await this.afAuth.auth.signInWithEmailAndPassword(username + '@codedamn.com', password)
 			
 				if(res.user){
 						this.user.setUser({

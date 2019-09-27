@@ -48,7 +48,7 @@ export class UploaderPage implements OnInit {
     const image = this.imageURL
     const activeEffect = this.activeEffect
     const desc = this.desc
-
+    //guardar imagen en firebase. afstore da el acceso a firebase
     this.afstore.doc(`users/${this.user.getUID()}`).update({
       posts: firestore.FieldValue.arrayUnion(`${image}/${activeEffect}`)
     })
@@ -59,7 +59,7 @@ export class UploaderPage implements OnInit {
       likes: [],
       effect: activeEffect
 		})
-
+    //reestablece los valores de los campos
     this.busy = false
     this.imageURL = ""
     this.desc = ""
@@ -78,11 +78,11 @@ export class UploaderPage implements OnInit {
   setSelected(effect: string) {
 		this.activeEffect = this.effects[effect]
 	}
-
+  //boton que se llama al oprimir el boton upload file
   uploadFile() {
     this.fileButton.nativeElement.click()
   }
-
+  //metodo que carga la imagen con ayuda de uploadcare
   fileChanged(event) {
     this.busy = true
 
